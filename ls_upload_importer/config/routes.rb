@@ -1,10 +1,4 @@
 Rails.application.routes.draw do
-  get 'upload/new'
-
-  get 'upload/create'
-
-  get 'upload/show'
-
-  root 'upload#new'
-
+  resources :uploads, only: [:new, :create, :index, :show]
+  root 'uploads#new'
 end

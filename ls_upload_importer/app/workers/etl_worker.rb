@@ -1,6 +1,6 @@
 require 'csv'
 
-class ImportWorker
+class EtlWorker
 
   def initialize(id)
     @upload = Upload.find_by_id(id)
