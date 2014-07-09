@@ -3,8 +3,8 @@
   %strong Filename:
   = @upload.filename
 %p
-  Total Gross Revenue from upload $
-  = @upload.revenue
+  Total Gross Revenue from upload
+  = number_to_currency @upload.revenue
 %br/
 = link_to 'New Upload', new_upload_path
 
