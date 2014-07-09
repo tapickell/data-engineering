@@ -5,6 +5,6 @@ Rails.application.routes.draw do
 
   get 'upload/show'
 
-  root 'uploads#new'
+  root 'upload#new'
 
 end
