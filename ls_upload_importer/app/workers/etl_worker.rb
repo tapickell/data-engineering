@@ -9,7 +9,7 @@ class EtlWorker
   def work
     revenues = 0
 
-    CSV.new(@upload.uploaded_data, { col_sep: "\t", headers: true, return_headers: false }).each do |row|
+    CSV.new(@upload.data, { col_sep: "\t", headers: true, return_headers: false }).each do |row|
 
       merchant = Merchant.find_or_create_by(name: row.fetch('merchant name')) do |merchant|
         merchant.address = row.fetch('merchant address')
@@ -22,7 +22,7 @@ class EtlWorker
 
       purchaser = Purchaser.find_or_create_by(name: row.fetch('purchaser name'))
 
-      purchase = Purchase.new({purchaser_name: purchaser.name, count: row.fetch('purchase count'), item_id: item.id, purchaser_id: purchaser.id})
+      purchase = Purchase.new({count: row.fetch('purchase count'), item_id: item.id, purchaser_id: purchaser.id})
       purchase.save
       revenues +=  purchase.count * item.price
 
