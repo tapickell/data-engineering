@@ -1,19 +1,33 @@
 require 'test_helper'
 
-class UploadControllerTest < ActionController::TestCase
-  test "should get new" do
-    get :new
-    assert_response :success
+describe UploadsController do
+  subject { @controller }
+
+  describe "New" do
+
+    it 'works' do
+      get :new
+      must_respond_with :success
+    end
   end
 
-  test "should get create" do
-    get :create
-    assert_response :success
+  describe "Create" do
+    let(:upload_object) { FactoryGirl.build :upload_object }
+    let(:upload_params) { {upload: {filename: upload_object} } }
+
+    it 'works' do
+      post :create, upload_params
+      must_respond_with :success
+    end
   end
 
-  test "should get show" do
-    get :show
-    assert_response :success
+  describe "Show" do
+    let(:upload) { FactoryGirl.create :upload }
+
+    it 'works' do
+      get :show, { id: upload.id }
+      must_respond_with :success
+    end
   end
 
 end

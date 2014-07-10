@@ -1,5 +1,4 @@
 class UploadsController < ApplicationController
-  before_action :set_upload, only: [:show, :edit, :update, :destroy]
 
   def new
     @upload = Upload.new
@@ -21,11 +20,11 @@ class UploadsController < ApplicationController
     end
   end
 
-  private
-
-  def set_upload
+  def show
     @upload = Upload.find(params[:id])
   end
+
+  private
 
   def upload_params
     params.require(:upload).permit(:filename)
