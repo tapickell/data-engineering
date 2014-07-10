@@ -1,3 +1,3 @@
 class UploadObject
-  attr_accessor :original_filename, :read
+  attr_accessor :read, :original_filename
 end
