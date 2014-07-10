@@ -15,19 +15,19 @@ describe EtlWorker do
   end
 
   describe 'imports all of the merchants into the db' do
-    it { Merchant.count.must_equal 2 }
+    it { Merchant.count.must_equal 3 }
   end
 
   describe 'imports all of the items into the db' do
-    it { Item.count.must_equal 2 }
+    it { Item.count.must_equal 3 }
   end
 
   describe 'imports all of the purchasers into the db' do
-    it { Purchaser.count.must_equal 2 }
+    it { Purchaser.count.must_equal 3 }
   end
 
   describe 'imports all of the purchases into the db' do
-    it { Purchase.count.must_equal 2 }
+    it { Purchase.count.must_equal 4 }
   end
 
 end
